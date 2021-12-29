@@ -2,7 +2,7 @@ FROM arm64v8/ubuntu:bionic
 
 WORKDIR /home
 
-RUN apt-get update
+RUN apt-get update -y
 RUN apt-get install cmake build-essential colordiff git doxygen -y
 RUN apt-get install python3 python3-pip -y
 RUN apt install git -y
@@ -25,8 +25,8 @@ WORKDIR /home/MAVSDK-Python
 RUN git submodule update --init --recursive
 
 WORKDIR /home
-COPY takeoff_and_land2.py .
-COPY offboard_position_ned2.py .
+COPY camera.py .
+COPY main.py .
 COPY start-mavsdk-server.sh .
 
 CMD ["/bin/bash"]

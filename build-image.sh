@@ -18,8 +18,8 @@ fi
 echo "Building image: $IMAGE_NAME"
 adb shell mkdir -p $TARGET_DIR
 adb push Dockerfile $TARGET_DIR
-adb push takeoff_and_land2.py $TARGET_DIR
-adb push offboard_position_ned2.py $TARGET_DIR
+adb push camera.py $TARGET_DIR
+adb push main.py $TARGET_DIR
 adb push start-mavsdk-server.sh $TARGET_DIR
 
 adb shell docker build -t $IMAGE_NAME $TARGET_DIR

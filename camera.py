@@ -20,7 +20,7 @@ possible_setting_options = []
 
 async def run():
     drone = System()
-    await drone.connect(system_address="udp://:14540")
+    await drone.connect(system_address="udp://:14550")
     await drone.action.arm()
 
     asyncio.ensure_future(observe_current_settings(drone))
