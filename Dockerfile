@@ -2,7 +2,6 @@ FROM arm64v8/ubuntu:bionic
 
 WORKDIR /home
 
-RUN add-apt-repository -y ppa:george-edison55/cmake-3.14.0
 RUN apt-get update -y
 RUN apt-get install cmake build-essential colordiff git doxygen -y
 RUN apt-get install python3 python3-pip -y
@@ -14,9 +13,9 @@ WORKDIR /home/MAVSDK
 RUN git checkout main
 RUN git submodule update --init --recursive
 
-RUN cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_MAVSDK_SERVER=ON -DBUILD_SHARED_LIBS=OFF -Bbuild/default -H.
-RUN cmake --build build/default --target install -- -j 4
-RUN ldconfig
+#RUN cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_MAVSDK_SERVER=ON -DBUILD_SHARED_LIBS=OFF -Bbuild/default -H.
+#RUN cmake --build build/default --target install -- -j 4
+#RUN ldconfig
 
 WORKDIR /home
 
