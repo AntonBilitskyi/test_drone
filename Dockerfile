@@ -10,7 +10,7 @@ RUN apt install git -y
 RUN git clone https://github.com/mavlink/MAVSDK.git
 
 WORKDIR /home/MAVSDK
-RUN git checkout master
+RUN git checkout main
 RUN git submodule update --init --recursive
 
 RUN cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_MAVSDK_SERVER=ON -DBUILD_SHARED_LIBS=OFF -Bbuild/default -H.
@@ -19,7 +19,7 @@ RUN ldconfig
 
 WORKDIR /home
 
-RUN pip3 install mavsdk
+RUN pip3 install mavsdk, aioconsole
 RUN git clone https://github.com/mavlink/MAVSDK-Python.git
 WORKDIR /home/MAVSDK-Python
 RUN git submodule update --init --recursive
