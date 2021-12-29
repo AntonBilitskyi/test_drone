@@ -6,7 +6,7 @@ from mavsdk.camera import (CameraError, Mode)
 
 async def run():
 
-    drone = System()
+    drone = System(mavsdk_server_address="127.0.0.1")
     await drone.connect(system_address="udp://:14550")
 
     print("Waiting for drone to connect...")
