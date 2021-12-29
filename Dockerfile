@@ -19,7 +19,7 @@ RUN git submodule update --init --recursive
 
 WORKDIR /home
 
-RUN pip3 install mavsdk, aioconsole
+RUN pip3 install mavsdk aioconsole
 RUN git clone https://github.com/mavlink/MAVSDK-Python.git
 WORKDIR /home/MAVSDK-Python
 RUN git submodule update --init --recursive
