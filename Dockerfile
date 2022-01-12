@@ -3,6 +3,7 @@ FROM arm64v8/ubuntu:bionic
 WORKDIR /home
 
 RUN apt-get update -y
+RUN apt install -y libprotobuf-dev protobuf-compiler
 RUN apt-get install cmake build-essential colordiff git doxygen -y
 RUN apt-get install python3 python3-pip -y
 RUN apt install git -y
