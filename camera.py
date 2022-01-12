@@ -19,7 +19,7 @@ current_settings = []
 possible_setting_options = []
 
 async def run():
-    drone = System(mavsdk_server_address="0.0.0.0")
+    drone = System()
     await drone.connect(system_address="udp://:14550")
 
 
