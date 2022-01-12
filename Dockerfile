@@ -3,9 +3,10 @@ FROM arm64v8/ubuntu:bionic
 WORKDIR /home
 
 RUN apt-get update -y
+RUN port install gnupg gnupg2
 RUN apt purge --auto-remove cmake -y
 RUN apt install -y libprotobuf-dev protobuf-compiler wget
-RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
+RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
 RUN apt-add-repository "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"
 RUN apt update -y
 RUN apt install kitware-archive-keyring
