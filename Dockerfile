@@ -3,7 +3,14 @@ FROM arm64v8/ubuntu:bionic
 WORKDIR /home
 
 RUN apt-get update -y
-RUN apt install -y libprotobuf-dev protobuf-compiler
+RUN apt purge --auto-remove cmake -y
+RUN apt install -y libprotobuf-dev protobuf-compiler wget
+RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
+RUN apt-add-repository "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"
+RUN apt update -y
+RUN apt install kitware-archive-keyring
+RUN rm /etc/apt/trusted.gpg.d/kitware.gpg
+RUN apt update -y
 RUN apt-get install cmake build-essential colordiff git doxygen -y
 RUN apt-get install python3 python3-pip -y
 RUN apt install git -y
