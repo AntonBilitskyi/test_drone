@@ -15,11 +15,11 @@ async def run():
             print(f"Drone discovered!")
             break
 
-    print("Waiting for drone to have a global position estimate...")
-    async for health in drone.telemetry.health():
-        if health.is_global_position_ok:
-            print("Global position estimate ok")
-            break
+    # print("Waiting for drone to have a global position estimate...")
+    # async for health in drone.telemetry.health():
+    #     if health.is_global_position_ok:
+    #         print("Global position estimate ok")
+    #         break
 
     print_mode_task = asyncio.ensure_future(print_mode(drone))
     print_status_task = asyncio.ensure_future(print_status(drone))

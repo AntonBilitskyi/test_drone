@@ -22,9 +22,9 @@ WORKDIR /home/MAVSDK
 RUN git checkout main
 RUN git submodule update --init --recursive
 
-#RUN cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_MAVSDK_SERVER=ON -DBUILD_SHARED_LIBS=OFF -Bbuild/default -H.
-#RUN cmake --build build/default --target install -- -j 4
-#RUN ldconfig
+RUN cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_MAVSDK_SERVER=ON -DBUILD_SHARED_LIBS=OFF -Bbuild/default -H.
+RUN cmake --build build/default --target install -- -j 4
+RUN ldconfig
 
 WORKDIR /home
 
