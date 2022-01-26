@@ -1,5 +1,4 @@
-ENV PYTHON_VERSION="3.8.6"
-FROM python:${PYTHON_VERSION}-slim-buster
+FROM python:3.8.6-slim-buster
 
 LABEL mantainer="Chao Yang Wu <peteeelol@gmail.com>"
 
